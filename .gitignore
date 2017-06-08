@@ -1,0 +1,12 @@
+spec/fixtures/modules/*
+.project
+.kitchen/
+.bundle/
+*.zip
+*.tar
+*.gz
+*.jar
+*.bin
+*.swp
+nb-project.properties
+.idea

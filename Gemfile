@@ -1,0 +1,33 @@
+source ENV['GEMS_REPO_URL'] ? ENV['GEMS_REPO_URL'] : 'https://rubygems.org'
+
+puppetversion = ENV.key?('PUPPET_VERSION') ? (ENV['PUPPET_VERSION']).to_s : ['= 4.2']
+gem 'puppet', puppetversion
+gem 'puppetlabs_spec_helper', '>= 0.8.2'
+gem 'puppet-lint', '~> 2.0.2'
+gem 'puppet-lint-variable_contains_upcase'
+gem 'puppet-lint-unquoted_string-check'
+gem 'puppet-lint-trailing_comma-check'
+gem 'puppet-lint-resource_reference_syntax'
+gem 'puppet-lint-package_ensure-check'
+gem 'puppet-lint-leading_zero-check'
+gem 'puppet-lint-file_ensure-check'
+gem 'puppet-lint-classes_and_types_beginning_with_digits-check'
+gem 'facter', '>= 2.4.4'
+gem 'hiera'
+gem 'metadata-json-lint'
+gem 'r10k', '>= 2.0.3'
+gem 'guard-rspec', '>= 4.6.5'
+gem 'guard-rake'
+gem 'rspec-puppet-utils'
+gem 'terminal-notifier-guard'
+gem 'listen', '= 3.1.1'
+gem 'puppet-blacksmith', '~> 3.3', '>= 3.3.1'
+
+gem 'test-kitchen', '= 1.11.1'
+gem 'serverspec'
+gem 'kitchen-vagrant'
+gem 'kitchen-sync'
+
+gem 'rubocop-rspec'
+gem 'json_pure'
+gem 'rspec-puppet-facts'

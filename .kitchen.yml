@@ -1,0 +1,34 @@
+---
+
+driver:
+  name: vagrant
+  username: vagrant
+
+transport:
+  name: rsync
+
+provisioner:
+  name: shell
+  data_path: spec/fixtures/modules
+
+platforms:
+  - name: ubuntu-16-04
+    driver:
+      box: puppetlabs/ubuntu-16.04-64-puppet
+      network:
+      - ["forwarded_port", {guest: 80, host: 8080}]
+  - name: centos-7
+    driver:
+      box: puppetlabs/centos-7.2-64-puppet
+      network:
+      - ["forwarded_port", {guest: 80, host: 8081}]
+
+verifier:
+  name: shell
+
+suites:
+  - name: demo
+    provisioner:
+      script: spec/fixtures/manifests/site.sh
+    verifier:
+      command: bundle exec rspec spec/serverspec/init_spec.rb
